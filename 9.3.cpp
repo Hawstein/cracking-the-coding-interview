@@ -1,7 +1,6 @@
 #include <iostream>
 using namespace std;
 
-int cnt = 0;
 int search(int a[], int low, int high, int x){
     while(low <= high){
         //cout<<low<<" "<<high<<endl;
@@ -37,6 +36,5 @@ int main(){
         2,2,2,2,2,2,2,2,3,2,2,2,2,2,2,2,2,2,2
     };
     cout<<search(a, 0, 11, 3)<<endl;
-    cout<<cnt<<endl;
     return 0;
 }
