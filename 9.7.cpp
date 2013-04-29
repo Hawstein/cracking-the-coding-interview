@@ -4,24 +4,24 @@
 using namespace std;
 
 const int maxn = 100;
-struct point{
+struct person{
     int h, w;
 };
-point p[maxn];
+person p[maxn];
 int d[maxn];
 
-bool cmp(point p1, point p2){
+bool cmp(person p1, person p2){
     if(p1.h == p2.h) return p1.w < p2.w;
     else return p1.h < p2.h;
 }
-int lis(point p[], int n){
+int lis(person p[], int n){
     int k = 1;
     d[0] = p[0].w;
     for(int i=1; i<n; ++i){
         if(p[i].w >= d[k-1]) d[k++] = p[i].w;
         else{
             int j;
-            for(j=k-1; j>=0 && d[j]>p[i].w; --j);
+            for(j=k-1; j>=0 && d[j]>p[i].w; --j);//用二分可将复杂度降到O(nlogn)
             d[j+1] = p[i].w;
         }
     }
