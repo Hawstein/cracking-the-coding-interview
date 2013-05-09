@@ -64,9 +64,10 @@ void replace2(char *c)
 }
 int main()
 {
-    char c[] = "i am hawstein.";
+    const int len = 100;
+    char c[len] = "i am  tom";
     cout<<replace1(c)<<endl;
-    //replace2(c);
+    replace2(c);
     cout<<c<<endl;
     return 0;
 }
