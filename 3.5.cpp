@@ -1,7 +1,49 @@
 #include <iostream>
 #include <stack>
+#include <queue>
 using namespace std;
 
+template <typename T>
+class MyStack{
+public:
+    MyStack(){
+        
+    }
+    ~MyStack(){
+        
+    }
+    void push(T val){
+        qin.push(val);
+    }
+    void pop(){
+        if(!qin.empty())
+            move(qin, qout);
+        else
+            move(qout, qin);
+    }
+    T top(){
+        if(!qin.empty())
+            return qin.back();
+        else
+            return qout.back();
+    }
+    bool empty(){
+        return qin.empty() && qout.empty();
+    }
+    int size(){
+        return qin.size() + qout.size();
+    }
+    void move(queue<T> &src, queue<T> &dst){
+        while(!src.empty()){
+            T val = src.front();
+            src.pop();
+            if(src.empty()) break;
+            dst.push(val);
+        }
+    }
+private:
+    queue<T> qin, qout;
+};
 template <typename T>
 class MyQueue{
 public:
@@ -47,7 +89,6 @@ private:
 template <typename T>
 class MyQueue1{
 public:
-public:
     MyQueue1(){
         
     }
@@ -88,6 +129,21 @@ private:
     stack<T> sin, sout;    
 };
 int main(){
+    MyStack<int> st;
+    for(int i=0; i<10; ++i){
+        st.push(i);
+    }
+    cout<<st.top()<<endl;
+    st.pop();
+    cout<<st.top()<<endl;
+    st.push(100);
+    cout<<st.top()<<endl;
+    for(int i=0; i<2; ++i){
+        st.pop();
+        cout<<st.top()<<endl;
+    }
+    
+    
     MyQueue<int> q;
     MyQueue1<int> q1;
     for(int i=0; i<10; ++i){
