@@ -6,10 +6,14 @@ void printLastKLines(ifstream &fin, int k){
     string line[k];
     int lines = 0;
     string tmp;
-    while(getline(fin, tmp) && !fin.eof()){
+    while(getline(fin, tmp)){//&& !fin.eof()
         line[lines%k] = tmp;
         ++lines;
     }
+    // while(!fin.eof()){
+    //     getline(fin, line[lines%k]);
+    //     ++lines;
+    // }
     int start, cnt;
     if(lines < k){
         start = 0;

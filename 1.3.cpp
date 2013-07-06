@@ -113,6 +113,5 @@ int main()
     removeDuplicate5(ss4);
     removeDuplicate5(ss5);
     cout<<ss1<<" "<<ss2<<" "<<ss3<<" "<<ss4<<" "<<ss5<<endl;
-    //cout<<removeDuplicate1(s6)<<" "<<removeDuplicate2(s6)<<endl;
     return 0;
 }

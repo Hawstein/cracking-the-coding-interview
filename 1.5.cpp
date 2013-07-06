@@ -2,8 +2,8 @@
 #include <cstring>
 using namespace std;
 
-char* replace1(char *c)
-{
+char* replace1(char *c){
+    if(c == NULL) return NULL;
     int len = strlen(c);
     if(len == 0) return NULL;
     int cnt = 0;
@@ -12,7 +12,7 @@ char* replace1(char *c)
         if(c[i] == ' ')
             ++cnt;
     }
-    char *cc = new char[len+2*cnt];
+    char *cc = new char[len+2*cnt+1];
     int p = 0;
     for(int i=0; i<len; ++i)
     {
@@ -33,8 +33,8 @@ char* replace1(char *c)
     return cc;
 }
 
-void replace2(char *c)
-{
+void replace2(char *c){
+    if(c == NULL) return;
     int len = strlen(c);
     if(len == 0) return;
     int cnt = 0;
@@ -44,8 +44,7 @@ void replace2(char *c)
             ++cnt;
     }
     int p = len + 2*cnt;
-    c[p] = '\0';//the space must be allocated first.
-    --p;
+    c[p--] = '\0';//the space must be allocated first.
     for(int i=len-1; i>=0; --i)
     {
         if(c[i] == ' ')
@@ -62,10 +61,9 @@ void replace2(char *c)
         }
     }
 }
-int main()
-{
+int main(){
     const int len = 100;
-    char c[len] = "i am  tom";
+    char c[len] = "";
     cout<<replace1(c)<<endl;
     replace2(c);
     cout<<c<<endl;

@@ -38,7 +38,7 @@ node* addlink(node *p, node *q){
         c = t/10;
         p = p->next; q = q->next;
     }
-    if(p){
+    while(p){
         int t = p->data + c;
         node *r = new node();
         r->data = t%10;
@@ -47,7 +47,7 @@ node* addlink(node *p, node *q){
         c = t/10;
         p = p->next;
     }
-    if(q){
+    while(q){
         int t = q->data + c;
         node *r = new node();
         r->data = t%10;
@@ -73,9 +73,9 @@ void print(node *head){
 }
 
 int main(){
-    int n = 4;
+    int n = 5;
     int a[] = {
-        1, 2, 9, 3
+        1, 2, 9, 9, 3
     };
     int m = 3;
     int b[] = {

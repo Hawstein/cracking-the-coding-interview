@@ -2,20 +2,18 @@
 #include <cstdio>
 using namespace std;
 
-void zero(int **a, int m, int n)
-{
-    int *row = new int[m];
-    int *col = new int[n];
+void zero(int **a, int m, int n){
+    bool *row = new bool[m];
+    bool *col = new bool[n];
     for(int i=0; i<m; ++i)
         for(int j=0; j<n; ++j)
-            if(a[i][j] == 0)
-            {
-                row[i] = 1;
-                col[j] = 1;
+            if(a[i][j] == 0){
+                row[i] = true;
+                col[j] = true;
             }
     for(int i=0; i<m; ++i)
         for(int j=0; j<n; ++j)
-            if(row[i]==1 || col[j]==1)
+            if(row[i] || col[j])
                 a[i][j] = 0;
 }
 int main()
@@ -31,9 +29,14 @@ int main()
     for(int i=0; i<m; ++i)
         for(int j=0; j<n; ++j)
             cin>>a[i][j];
+    for(int i=0; i<m; ++i){
+        for(int j=0; j<n; ++j)
+            cout<<a[i][j]<<" ";
+        cout<<endl;
+    }
+    cout<<endl;
     zero(a, m, n);
-    for(int i=0; i<m; ++i)
-    {
+    for(int i=0; i<m; ++i){
         for(int j=0; j<n; ++j)
             cout<<a[i][j]<<" ";
         cout<<endl;
