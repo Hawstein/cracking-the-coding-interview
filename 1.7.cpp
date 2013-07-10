@@ -1,10 +1,13 @@
 #include <iostream>
 #include <cstdio>
+#include <cstring>
 using namespace std;
 
 void zero(int **a, int m, int n){
     bool *row = new bool[m];
     bool *col = new bool[n];
+    memset(row, false, sizeof(row));
+    memset(col, false, sizeof(col));
     for(int i=0; i<m; ++i)
         for(int j=0; j<n; ++j)
             if(a[i][j] == 0){

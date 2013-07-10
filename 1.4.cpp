@@ -19,10 +19,11 @@ bool isAnagram(string s, string t){
     int len = s.length();
     int c[256];
     memset(c, 0, sizeof(c));
-    for(int i=0; i<len; ++i)
+    for(int i=0; i<len; ++i){
         ++c[(int)s[i]];
-    for(int i=0; i<len; ++i)
         --c[(int)t[i]];
+    }
+        
     for(int i=0; i<256; ++i)
         if(c[i] != 0)
             return false;
