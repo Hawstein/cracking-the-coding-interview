@@ -29,6 +29,7 @@ stack<int> Ssort(stack<int> s){
     }
     return t;
 }
+
 int main(){
     srand((unsigned)time(0));
     stack<int> s;
