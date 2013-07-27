@@ -21,7 +21,7 @@ int Add3(int a, int b){
     return a;
 }
 int main(){
-    int a = 1123927350, b = -134310;
+    int a = 70, b = -134310;
     cout<<Add1(a, b)<<endl;
     cout<<Add2(a, b)<<endl;
     cout<<Add3(a, b)<<endl;
