@@ -4,8 +4,7 @@
 using namespace std;
 
 void zero(int **a, int m, int n){
-    bool *row = new bool[m];
-    bool *col = new bool[n];
+    bool row[m], col[n];
     memset(row, false, sizeof(row));
     memset(col, false, sizeof(col));
     for(int i=0; i<m; ++i)

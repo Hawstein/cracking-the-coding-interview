@@ -22,16 +22,16 @@ int next(int x){
     int num = count_one(x);
     if(num == 0 || x == -1) return -1;
     for(++x; count_one(x) != num && x <= max_int; ++x);
-    if(x == max_int) return -1;
-    return x;
+    if(count_one(x) == num) return x;
+    return -1;
 }
 int previous(int x){
     int min_int = (1<<31);
     int num = count_one(x);
     if(num == 0 || x == -1) return -1;
     for(--x; count_one(x) != num && x >= min_int; --x);
-    if(x == min_int) return -1;
-    return x;
+    if(count_one(x) == num) return x;
+    return -1;
 }
 int next1(int x){
     int xx = x, bit = 0;
