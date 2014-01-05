@@ -19,6 +19,7 @@ int missing(int a[], int n){
     for(int i=0; i<n+1; ++i){
         if(!b[i]) return i;
     }
+    delete[] b;
 }
 int fetch1(int a[], int j){
     return (a[j/32] >> (j % 32)) & 1;

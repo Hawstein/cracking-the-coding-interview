@@ -21,7 +21,7 @@ int next(int x){
     int max_int = ~(1<<31);
     int num = count_one(x);
     if(num == 0 || x == -1) return -1;
-    for(++x; count_one(x) != num && x <= max_int; ++x);
+    for(++x; count_one(x) != num && x < max_int; ++x);
     if(count_one(x) == num) return x;
     return -1;
 }
@@ -29,7 +29,7 @@ int previous(int x){
     int min_int = (1<<31);
     int num = count_one(x);
     if(num == 0 || x == -1) return -1;
-    for(--x; count_one(x) != num && x >= min_int; --x);
+    for(--x; count_one(x) != num && x > min_int; --x);
     if(count_one(x) == num) return x;
     return -1;
 }
@@ -57,11 +57,12 @@ int previous1(int x){
     int num1 = count_one(xx) - count_one(x);
     x >>= bit;
     for(; num1 > 0; x = (x<<1) | 1, --num1, --bit);
-    for(; bit > 0; x <<= 1, --bit);
+    //for(; bit > 0; x <<= 1, --bit);
+    x <<= bit;
     return x;
 }
 int main(){
-    int a = -976756;//(1<<31)+(1<<29);//-8737776;
+    int a = -9756;//(1<<31)+(1<<29);//-8737776;
     cout<<next(a)<<" "<<previous(a)<<endl;
     cout<<next1(a)<<" "<<previous1(a)<<endl;;
     return 0;

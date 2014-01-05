@@ -4,7 +4,7 @@ using namespace std;
 class Bitmap{
 public:
     Bitmap(int size = 32){
-        bits = new int[size/32];
+        bits = new int[size/32 + 1];
     }
     ~Bitmap(){
         delete[] bits;

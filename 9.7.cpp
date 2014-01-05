@@ -18,7 +18,7 @@ int lis(person p[], int n){
     int k = 1;
     d[0] = p[0].w;
     for(int i=1; i<n; ++i){
-        if(p[i].w >= d[k-1]) d[k++] = p[i].w;
+        if(p[i].w > d[k-1]) d[k++] = p[i].w;
         else{
             int j;
             for(j=k-1; j>=0 && d[j]>p[i].w; --j);//用二分可将复杂度降到O(nlogn)
@@ -26,6 +26,18 @@ int lis(person p[], int n){
         }
     }
     return k;
+}
+int lis1(person p[], int n) {
+    int k = 1;
+    person d[n];
+    d[0] = p[0];
+    for(int i=1; i<n; ++i) {
+        if(p[i].w>d[k-1].w && p[i].h>d[k-1].h) d[k++] = p[i];
+        else {
+            int j;
+            for(j=k-1; j>=0 && (p[i].w<))
+        }
+    }
 }
 int main(){
     freopen("9.7.in", "r", stdin);

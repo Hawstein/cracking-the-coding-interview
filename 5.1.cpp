@@ -4,10 +4,12 @@ using namespace std;
 
 void print_binary(int n){
     vector<int> v;
-    while(n != 0){
-        if(n&1) v.push_back(1);
+    int len = 8 * sizeof(int);
+    int mask = 1;
+    while(len--){
+        if(n&mask) v.push_back(1);
         else v.push_back(0);
-        n >>= 1;
+        mask <<= 1;
     }
     while(!v.empty()){
         cout<<v.back();

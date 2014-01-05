@@ -17,8 +17,10 @@ public:
 void Median::Insert(int v){
     if(max_heap.empty() && min_heap.empty())
         max_heap.push(v);
+    // max_heap不为空，则往max_heap插入数据，
+    // 往min_heap插入数据的话可能导致较小的数放到右边的堆
     else if(!max_heap.empty() && min_heap.empty())
-        max_heap.push(v);
+        max_heap.push(v); 
     else if(max_heap.empty() && !min_heap.empty())
         min_heap.push(v);
     else{
@@ -57,16 +59,19 @@ int Median::GetValue(){//中位数为int，由于有除法，也可改为float
 int main(){
     srand((unsigned)time(0));
     Median md;
-    vector<int> vi;
-    int num = rand() % 30; //数量是30以内的随机数
-    for(int i=0; i<num; ++i){
-        int data = rand() % 100; //元素是100内的数
-        vi.push_back(data);
-        md.Insert(data);
-    }
-    sort(vi.begin(), vi.end());
-    for(int i=0; i<num; ++i)
-        cout<<vi.at(i)<<" "; //排序的序列
+    // vector<int> vi;
+    // int num = rand() % 30; //数量是30以内的随机数
+    // for(int i=0; i<num; ++i){
+    //     int data = rand() % 100; //元素是100内的数
+    //     vi.push_back(data);
+    //     md.Insert(data);
+    // }
+    // sort(vi.begin(), vi.end());
+    // for(int i=0; i<num; ++i)
+    //     cout<<vi.at(i)<<" "; //排序的序列
+    md.Insert(3);
+    md.Insert(1);
+    md.Insert(2);
     cout<<endl<<md.GetValue()<<endl; //中位数
     return 0;
 }

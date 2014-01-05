@@ -27,12 +27,12 @@ node* init(int a[], int n, int m){
 node* loopstart(node *head){
     if(head==NULL) return NULL;
     node *fast = head, *slow = head;
-    while(fast->next!=NULL){
+    while(fast && fast->next){
         fast = fast->next->next;
         slow = slow->next;
         if(fast==slow) break;
     }
-    if(fast->next==NULL) return NULL;
+    if(!fast || !fast->next) return NULL;
     slow = head;
     while(fast!=slow){
         fast = fast->next;

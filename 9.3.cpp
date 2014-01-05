@@ -3,27 +3,19 @@ using namespace std;
 
 int search(int a[], int low, int high, int x){
     while(low <= high){
-        //cout<<low<<" "<<high<<endl;
-        //++cnt;
-        int mid = (low+high)>>1;
+        int mid = low + (high - low)/2;
         if(a[mid] == x) return mid;
-        if(a[mid] < x){
-            if(a[mid] < a[low]){
-                if(a[low] <= x) high = mid - 1;
-                else low = mid + 1;
-            }
-            else{
-                low = mid + 1;
-            }
-        }
-        else{
-            if(a[mid] < a[low]){
+        if(a[mid] >= a[low]) {
+            if(x<a[mid] && x>=a[low])
                 high = mid - 1;
-            }
-            else{
-                if(a[low] <= x) high = mid - 1;
-                else low = mid + 1;
-            }
+            else
+                low = mid + 1;
+        }
+        else {
+            if(x>a[mid] && x<a[low])
+                low = mid + 1;
+            else
+                high = mid - 1;
         }
     }
     return -1;
@@ -36,5 +28,6 @@ int main(){
         2,2,2,2,2,2,2,2,3,2,2,2,2,2,2,2,2,2,2
     };
     cout<<search(a, 0, 11, 3)<<endl;
+    cout<<search(b, 0, 18, 3)<<endl;
     return 0;
 }
